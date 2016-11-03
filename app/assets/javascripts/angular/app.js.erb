@@ -1,0 +1,30 @@
+
+// var app = angular.module('appName', ['oneDependency']);
+// var app = angular.module('rails-instagram', ['ngRoute']);
+
+// app.config(['$routeProvider', function($routeProvider) {
+//   // Configure Angular Routes
+//   $routeProvider.
+//     when('/', {
+//       templateUrl: "<%= asset_path('static_pages/index.html') %>",
+//       controller: 'StaticPagesCtrl'
+//     })
+// }]);
+
+// 'use strict'; // Make sure you don't have syntax errors
+
+// var app = angular.module('appName', ['oneDependency']);
+var app = angular.module('rails-instagram', ['ui.router']);
+
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  // Configure Angular Routes
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+    .state({
+      name: 'index',
+      url: '/',
+      templateUrl: "<%= asset_path('static_pages/index.html') %>",
+      controller: 'StaticPagesCtrl'
+    })
+}]);
